@@ -38,6 +38,7 @@ $routes->get('blog/(:segment)', 'Blog::view/$1');
 $routes->match(['get', 'post'], 'addPost', 'Blog::addPost');
 $routes->match(['get', 'post'], 'edit/(:any)', 'Blog::edit/$1');
 $routes->match(['get', 'post'], 'delete/(:any)', 'Blog::delete/$1');
+$routes->match(['get', 'post'], 'relation', 'Blog::addRelation');
 
 /*
  * --------------------------------------------------------------------

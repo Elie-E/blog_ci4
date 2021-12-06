@@ -7,17 +7,28 @@
     <title>Ajouter un post</title>
 </head>
 <body>
-<?php
-// var_dump($_REQUEST) ?>
 
     <form action="addPost" method="post">
 
+        <label for="post_key">key</label>
         <input type="text" name="post_key">
+        <label for="post_lng">lng</label>
         <input type="text" name="post_lng">
+        <label for="title">Titre</label>
         <input type="text" name="title">
+        <label for="content">Contenu</label>
         <input type="text" name="content">
         
+        <label for="enabled">Actif</label>
         <input type="checkbox" name="enabled">
+
+        <p>Choisisez la/les catégorie(s) associé(es)</pack>
+        <div>
+            <?php foreach ($categories as $category) : ?>
+                <label for="<?= $category->title ?>"><?= $category->title ?></label>
+                <input type="checkbox" value="<?= $category->id_blog_cat ?>" name="categBox[]" id="<?= $category->title ?>">
+            <?php endforeach ?>
+        </div>
 
         <input type="submit">
 

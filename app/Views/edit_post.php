@@ -19,6 +19,22 @@
         
         <input type="checkbox" name="enabled" value="<?= $post->enabled ?>">
 
+        <p>Choisisez la/les catégorie(s) associé(es)</pack>
+        <div>
+            <?php foreach ($categories as $category) : ?>
+
+
+                <label for="<?= $category->title ?>"><?= $category->title ?></label>
+                <input type="checkbox" value="<?= $category->id_blog_cat ?>" 
+                name="categBox[]" id="<?= $category->title ?>"
+
+                <?php foreach ($ids as $id) : ?>
+                <?= $category->id_blog_cat == $id->id_blog_cat ? 'checked' : '' ?>>
+                <?php endforeach ?>
+
+            <?php endforeach ?>
+        </div>
+
         <input type="submit">
 
     </form>

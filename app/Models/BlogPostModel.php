@@ -62,4 +62,34 @@ class BlogPostModel extends Model
             return $this->where(['id_blog_post' => $id])->first();
         }
     }
+
+    public function getCategories($id){
+
+        $builder = $this->db->table('blog_cat')
+            ->join('blog_post_cat', 'blog_post_cat.id_blog_cat = blog_cat.id_blog_cat')
+            ->where('id_blog_post', $id);
+        $query   = $builder->get();
+
+        return $query->getResult();
+    }
+
+    public function addData($postData, $catIds)
+    {
+        /**
+         * Inserting post in the database
+         */
+        $this->db->table('blog_post')->insert($postData);
+
+        /**
+         * Filling the intermediate table with the Id of the post I just created
+        */
+        $id = $this->db->insertID();
+        foreach ($catIds as $catId)
+        {
+            $this->db->table('blog_post_cat')->insert([
+                'id_blog_post' => $id,
+                'id_blog_cat' => $catId
+            ]);
+        }
+    }
 }

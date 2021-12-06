@@ -11,5 +11,12 @@
     <p>
         <?= $post->content ?>
     </p>
+    <div>
+
+        <?php foreach ($cat as $singleCat): ?>
+            <p><?= $singleCat->title ?></p>
+        <?php endforeach ?>
+
+    </div>
 </body>
 </html>

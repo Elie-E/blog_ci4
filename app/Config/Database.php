@@ -35,7 +35,7 @@ class Database extends Config
         'hostname' => '127.0.0.1',
         'username' => 'root',
         'password' => 'root',
-        'database' => 'alban_ci4_first',
+        'database' => 'alban_ci4_blog',
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,

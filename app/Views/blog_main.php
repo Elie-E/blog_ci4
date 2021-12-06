@@ -25,6 +25,12 @@
             <?= $row->enabled === NULL ? 'NON' : 'OUI' ?>
         </p>
 
+        <div>
+            <?php foreach($ids as $id) : ?>
+                <?= $id->title ?>
+            <?php endforeach ?>
+        </div>
+
        <a href="/edit/<?= $row->id_blog_post ?>">Modifier</a>
        <a href="/delete/<?= $row->id_blog_post ?>">Supprimer</a>
 
